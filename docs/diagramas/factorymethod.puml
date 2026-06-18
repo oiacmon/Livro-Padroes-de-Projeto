@@ -1,0 +1,21 @@
+@startuml
+interface Product {
+    + executar() : void
+}
+
+class ConcreteProductA implements Product
+class ConcreteProductB implements Product
+
+abstract class Creator {
+    + factoryMethod() : Product
+    + operar() : void
+}
+
+class ConcreteCreatorA extends Creator
+class ConcreteCreatorB extends Creator
+
+Creator <|-- ConcreteCreatorA
+Creator <|-- ConcreteCreatorB
+Product <|-- ConcreteProductA
+Product <|-- ConcreteProductB
+@enduml
