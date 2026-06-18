@@ -1,4 +1,4 @@
-package criacionais;
+package br.com.caio.padroes.criacionais;
 
 import br.com.caio.padroes.criacionais.singleton.Singleton;
 import org.junit.jupiter.api.Test;
