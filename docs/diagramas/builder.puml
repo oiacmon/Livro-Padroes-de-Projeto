@@ -1,0 +1,27 @@
+@startuml
+interface Builder {
+    + buildBread()
+    + buildMeat()
+    + buildSalad()
+    + getResult() : Product
+}
+
+class ConcreteBuilder implements Builder {
+    - product : Product
+}
+
+class Director {
+    - builder : Builder
+    + construct()
+}
+
+class Product {
+    - bread : String
+    - meat : String
+    - salad : String
+}
+
+Director --> Builder
+Builder <|-- ConcreteBuilder
+ConcreteBuilder --> Product
+@enduml
