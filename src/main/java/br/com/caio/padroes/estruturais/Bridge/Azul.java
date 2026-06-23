@@ -1,4 +1,4 @@
-package br.com.caio.padroes.Estruturais.Bridge;
+package br.com.caio.padroes.estruturais.Bridge;
 
 public class Azul implements Cor {
     @Override
