@@ -1,0 +1,20 @@
+@startuml
+interface Component {
+    + operation() : void
+}
+
+class Leaf implements Component {
+    - name : String
+}
+
+class Composite implements Component {
+    - name : String
+    - children : List<Component>
+    + add(Component)
+    + remove(Component)
+}
+
+Component <|-- Leaf
+Component <|-- Composite
+Composite --> Component : children
+@enduml
