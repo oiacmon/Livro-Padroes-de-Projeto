@@ -1,0 +1,17 @@
+@startuml
+interface Flyweight {
+    + operation(extrinsicState : int)
+}
+
+class ConcreteFlyweight implements Flyweight {
+    - intrinsicState : char
+}
+
+class FlyweightFactory {
+    - pool : Map<char, Flyweight>
+    + getFlyweight(key : char) : Flyweight
+}
+
+Flyweight <|-- ConcreteFlyweight
+FlyweightFactory --> Flyweight
+@enduml
