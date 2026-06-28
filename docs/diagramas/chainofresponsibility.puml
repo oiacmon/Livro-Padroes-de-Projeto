@@ -1,0 +1,16 @@
+@startuml
+abstract class Handler {
+    - next : Handler
+    + setNext(next : Handler)
+    + handle(value : int)
+}
+
+class ConcreteHandlerA extends Handler
+class ConcreteHandlerB extends Handler
+class ConcreteHandlerC extends Handler
+
+Handler <|-- ConcreteHandlerA
+Handler <|-- ConcreteHandlerB
+Handler <|-- ConcreteHandlerC
+Handler --> Handler : next
+@enduml
