@@ -1,0 +1,29 @@
+@startuml
+interface Expression {
+    + interpret() : int
+}
+
+class NumberExpression implements Expression {
+    - number : int
+}
+
+class AddExpression implements Expression {
+    - left : Expression
+    - right : Expression
+}
+
+class SubtractExpression implements Expression {
+    - left : Expression
+    - right : Expression
+}
+
+Expression <|-- NumberExpression
+Expression <|-- AddExpression
+Expression <|-- SubtractExpression
+
+AddExpression --> Expression : left
+AddExpression --> Expression : right
+
+SubtractExpression --> Expression : left
+SubtractExpression --> Expression : right
+@enduml
