@@ -1,0 +1,29 @@
+@startuml
+interface Iterator {
+    + hasNext() : boolean
+    + next() : Object
+}
+
+interface Aggregate {
+    + createIterator() : Iterator
+}
+
+class ConcreteAggregate {
+    - items : List<Object>
+    + add(item : Object)
+    + createIterator() : Iterator
+}
+
+class ConcreteIterator {
+    - items : List<Object>
+    - index : int
+    + hasNext() : boolean
+    + next() : Object
+}
+
+Aggregate <|-- ConcreteAggregate
+Iterator <|-- ConcreteIterator
+
+ConcreteAggregate --> ConcreteIterator : createIterator()
+ConcreteIterator --> ConcreteAggregate : items
+@enduml
