@@ -1,0 +1,34 @@
+@startuml
+interface Mediator {
+    + notify(sender : Colleague, event : String)
+}
+
+abstract class Colleague {
+    - mediator : Mediator
+    + sendEvent(event : String)
+}
+
+class ConcreteMediator implements Mediator {
+    - colleagueA : ConcreteColleagueA
+    - colleagueB : ConcreteColleagueB
+}
+
+class ConcreteColleagueA extends Colleague {
+    + actionA() : void
+    + react() : void
+}
+
+class ConcreteColleagueB extends Colleague {
+    + actionB() : void
+    + react() : void
+}
+
+Mediator <|-- ConcreteMediator
+Colleague <|-- ConcreteColleagueA
+Colleague <|-- ConcreteColleagueB
+
+ConcreteMediator --> ConcreteColleagueA
+ConcreteMediator --> ConcreteColleagueB
+
+Colleague --> Mediator
+@enduml
