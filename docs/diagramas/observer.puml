@@ -1,0 +1,36 @@
+@startuml
+interface Observer {
+    + update(state : int)
+}
+
+interface Subject {
+    + attach(o : Observer)
+    + detach(o : Observer)
+    + notifyObservers()
+}
+
+class ConcreteSubject implements Subject {
+    - observers : List<Observer>
+    - state : int
+    + setState(state : int)
+    + getState() : int
+}
+
+class ConcreteObserverA implements Observer {
+    - observedState : int
+    + update(state : int)
+    + getObservedState() : int
+}
+
+class ConcreteObserverB implements Observer {
+    - observedState : int
+    + update(state : int)
+    + getObservedState() : int
+}
+
+Subject <|-- ConcreteSubject
+Observer <|-- ConcreteObserverA
+Observer <|-- ConcreteObserverB
+
+ConcreteSubject --> Observer : notifica
+@enduml
