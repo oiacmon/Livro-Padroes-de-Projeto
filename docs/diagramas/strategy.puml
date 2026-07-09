@@ -1,0 +1,19 @@
+@startuml
+interface Strategy {
+    + execute(a : int, b : int) : int
+}
+
+class ConcreteStrategyA implements Strategy
+class ConcreteStrategyB implements Strategy
+
+class Context {
+    - strategy : Strategy
+    + setStrategy(strategy : Strategy)
+    + executeStrategy(a : int, b : int) : int
+}
+
+Strategy <|-- ConcreteStrategyA
+Strategy <|-- ConcreteStrategyB
+
+Context --> Strategy : delega
+@enduml
