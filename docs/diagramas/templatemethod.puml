@@ -1,0 +1,14 @@
+@startuml
+abstract class AbstractClass {
+    + templateMethod() : void
+    # step1() : void
+    # step2() : void
+    # step3() : void
+}
+
+class ConcreteClassA extends AbstractClass
+class ConcreteClassB extends AbstractClass
+
+AbstractClass <|-- ConcreteClassA
+AbstractClass <|-- ConcreteClassB
+@enduml
